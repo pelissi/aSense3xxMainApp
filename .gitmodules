@@ -1,0 +1,15 @@
+[submodule "Application"]
+	path = Application
+	url = http://192.168.1.101/Bonobo.Git.Server/application_asense.git
+[submodule "Abstraction"]
+	path = Abstraction
+	url = http://192.168.1.101/Bonobo.Git.Server/Abstraction.git
+[submodule "Common"]
+	path = Common
+	url = http://192.168.1.101/Bonobo.Git.Server/Common.git
+[submodule "SubLibs/AtesLib"]
+	path = SubLibs/AtesLib
+	url = http://192.168.1.101/Bonobo.Git.Server/AtesLib.git
+[submodule "SubLibs/UBlox"]
+	path = SubLibs/UBlox
+	url = http://192.168.1.101/Bonobo.Git.Server/UBlox.git
