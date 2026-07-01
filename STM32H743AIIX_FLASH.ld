@@ -37,11 +37,12 @@ ENTRY(Reset_Handler)
 /* Highest address of the user mode stack */
 _estack = ORIGIN(RAM_D1) + LENGTH(RAM_D1);    /* end of RAM */
 /* Generate a link error if heap and stack don't fit into RAM */
-_Min_Heap_Size = 0x30000;      /* required amount of heap  */
+_Min_Heap_Size = 0x25000;      /* required amount of heap  */
 _Min_Stack_Size = 0x1000; /* required amount of stack */
 _NonCacheable_RamD1_length 	= 0x8000;
 _ed2stack	= ORIGIN(RAM_D2) + LENGTH(RAM_D2);    /* end of RAM */
 _Min_D2Stack_Size = LENGTH(RAM_D2);
+_Min_D2_Heap_Size = 0x20000;	/* 128K: D1 heap dolunca _sbrk'in tastigi D2 fallback heap'i */
 _ed3stack	= ORIGIN(RAM_D3) + LENGTH(RAM_D3);    /* end of RAM */
 _Min_D3Stack_Size = LENGTH(RAM_D3);
 
@@ -102,10 +103,10 @@ SECTIONS
     *stm32h7xx_hal_uart_ex.o(.text .text*)
     *stm32h7xx_hal_tim.o(.text .text*)
     *stm32h7xx_hal_tim_ex.o(.text .text*)
-    *stm32h7xx_hal_spi.o(.text .text*)
-    *stm32h7xx_hal_spi_ex.o(.text .text*)
-    *stm32h7xx_hal_gpio.o(.text .text*)
-    *stm32h7xx_hal_gpio_ex.o(.text .text*)
+    /* *stm32h7xx_hal_spi.o(.text .text*)
+    *stm32h7xx_hal_spi_ex.o(.text .text*) */
+    /* *stm32h7xx_hal_gpio.o(.text .text*)
+    *stm32h7xx_hal_gpio_ex.o(.text .text*) */
     *stm32h7xx_hal_exti.o(.text .text*)
     *stm32h7xx_hal_dma.o(.text .text*)
     *stm32h7xx_hal_dma_ex.o(.text .text*)
@@ -258,12 +259,22 @@ SECTIONS
     . = ALIGN(4);
   } >ITCMRAM
   
+  /* D2 fallback heap: D1 heap doldugunda _sbrk() buraya tasar (bkz. sysmem2.c) */
+  ._heap_d2 (NOLOAD) :
+  {
+    . = ALIGN(8);
+    PROVIDE ( _heap_d2_start = . );
+    . = . + _Min_D2_Heap_Size;
+    PROVIDE ( _heap_d2_end = . );
+    . = ALIGN(8);
+  } >RAM_D2
+
   .ram_d2 (NOLOAD) :
   {
     . = ALIGN(8);
     PROVIDE ( d2end = . );
     PROVIDE ( _d2end = . );
-    . = . + _Min_D2Stack_Size;
+    . = . + (_Min_D2Stack_Size - _Min_D2_Heap_Size);
     . = ALIGN(8);
   }>RAM_D2
   

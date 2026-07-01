@@ -36,7 +36,8 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+char MotionMC_LoadCalFromNVM(unsigned short int datasize, unsigned int *data);
+char MotionMC_SaveCalInNVM(unsigned short int datasize, unsigned int *data);
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -94,12 +95,12 @@ void Error_Handler(void);
 #define PIN_BARO_CS_EE_N_GPIO_Port GPIOG
 #define PIN_PROG_Pin GPIO_PIN_9
 #define PIN_PROG_GPIO_Port GPIOG
-#define PIN_GNSS2_TIMEPULSE_N_Pin GPIO_PIN_1
-#define PIN_GNSS2_TIMEPULSE_N_GPIO_Port GPIOE
-#define PIN_GNSS2_TIMEPULSE_N_EXTI_IRQn EXTI1_IRQn
-#define PIN_GNSS1_TIMEPULSE_N_Pin GPIO_PIN_0
+#define PIN_GNSS1_TIMEPULSE_N_Pin GPIO_PIN_1
 #define PIN_GNSS1_TIMEPULSE_N_GPIO_Port GPIOE
-#define PIN_GNSS1_TIMEPULSE_N_EXTI_IRQn EXTI0_IRQn
+#define PIN_GNSS1_TIMEPULSE_N_EXTI_IRQn EXTI1_IRQn
+#define PIN_GNSS2_TIMEPULSE_N_Pin GPIO_PIN_0
+#define PIN_GNSS2_TIMEPULSE_N_GPIO_Port GPIOE
+#define PIN_GNSS2_TIMEPULSE_N_EXTI_IRQn EXTI0_IRQn
 #define PIN_GNSS1_EXTINT_Pin GPIO_PIN_13
 #define PIN_GNSS1_EXTINT_GPIO_Port GPIOI
 #define PIN_GNSS2_EXTINT_Pin GPIO_PIN_12
@@ -122,6 +123,12 @@ void Error_Handler(void);
 #define PIN_RS717_SLEWRATE_CTRL_GPIO_Port GPIOG
 #define PIN_RS717_DIR_Pin GPIO_PIN_1
 #define PIN_RS717_DIR_GPIO_Port GPIOG
+#define PIN_IMU_RS422_RE_Pin GPIO_PIN_2
+#define PIN_IMU_RS422_RE_GPIO_Port GPIOA
+#define PIN_IMU_RS422_DE_Pin GPIO_PIN_2
+#define PIN_IMU_RS422_DE_GPIO_Port GPIOH
+#define PIN_SAY_MY_NAME_Pin GPIO_PIN_12
+#define PIN_SAY_MY_NAME_GPIO_Port GPIOF
 
 /* USER CODE BEGIN Private defines */
 

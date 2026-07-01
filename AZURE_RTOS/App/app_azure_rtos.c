@@ -25,7 +25,15 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#ifdef __cplusplus
+extern "C" {
+#endif
 
+void CreateAppWrapper(void *ptr);
+
+#ifdef __cplusplus
+}
+#endif
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -40,7 +48,10 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
+#if defined(TX_APP_MEM_POOL_SIZE)
+#undef TX_APP_MEM_POOL_SIZE
+#define TX_APP_MEM_POOL_SIZE (1024 * 272)
+#endif
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
