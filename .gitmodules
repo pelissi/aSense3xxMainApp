@@ -1,15 +1,18 @@
 [submodule "Application"]
 	path = Application
-	url = http://192.168.1.101/Bonobo.Git.Server/application_asense.git
+	url = https://github.com/pelissi/aSenseApplication
 [submodule "Abstraction"]
 	path = Abstraction
-	url = http://192.168.1.101/Bonobo.Git.Server/Abstraction.git
+	url = https://github.com/pelissi/Abstraction
 [submodule "Common"]
 	path = Common
-	url = http://192.168.1.101/Bonobo.Git.Server/Common.git
+	url = https://github.com/pelissi/Common
 [submodule "SubLibs/AtesLib"]
 	path = SubLibs/AtesLib
-	url = http://192.168.1.101/Bonobo.Git.Server/AtesLib.git
+	url = https://github.com/pelissi/AtesLib
 [submodule "SubLibs/UBlox"]
 	path = SubLibs/UBlox
-	url = http://192.168.1.101/Bonobo.Git.Server/UBlox.git
+	url = https://github.com/pelissi/UBlox
+[submodule "SubLibs/Mavlink_c_library_v2"]
+	path = SubLibs/Mavlink_c_library_v2
+	url = https://github.com/mavlink/c_library_v2
