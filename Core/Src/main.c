@@ -872,7 +872,7 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin : PIN_BARO_CS_DATA_N_Pin */
   GPIO_InitStruct.Pin = PIN_BARO_CS_DATA_N_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(PIN_BARO_CS_DATA_N_GPIO_Port, &GPIO_InitStruct);
 
