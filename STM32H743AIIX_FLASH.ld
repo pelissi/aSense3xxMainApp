@@ -81,6 +81,11 @@ SECTIONS
   {
    . = ALIGN(4);
    _sccmram = .; /* define a global symbols at ccmram start */
+   /* Vektör tablosu ITCM 0x0'a (VTOR hizalama gereksinimini karşılar).
+      LMA kopyası FLASH_MAIN_APP başında (0x08100000) kalır: bootloader SP/PC'yi
+      ve SystemInit sonrası ilk VTOR hedefi bu flash kopyasını kullanır;
+      tx_initialize_low_level kernel girişinde VTOR'u g_pfnVectors (ITCM) yapar. */
+   KEEP(*(.isr_vector))
    *(.ccmram)
    *(.ccmram*)
     KEEP(*tx_*.o (.text*))
@@ -110,6 +115,15 @@ SECTIONS
     *stm32h7xx_hal_exti.o(.text .text*)
     *stm32h7xx_hal_dma.o(.text .text*)
     *stm32h7xx_hal_dma_ex.o(.text .text*)
+    /* Kesme yolunda flash'ta kalan tekil fonksiyonlar (-ffunction-sections sayesinde
+       tek tek taşınabiliyor; hal_tim.o/hal_gpio.o'nun tamamı ITCM'e sığmaz) */
+    *(.text.HAL_TIM_IRQHandler)
+    *(.text.HAL_TIM_PeriodElapsedCallback)
+    *(.text.HAL_GPIO_EXTI_IRQHandler)
+    /* fifo_push her UART RX kesmesinde memcpy çağırıyor -> libc kopya rutinleri ITCM'e */
+    *libc_nano.a:*memcpy*.o(.text .text*)
+    *libc_nano.a:*memset*.o(.text .text*)
+    *libc_nano.a:*memmove*.o(.text .text*)
    . = ALIGN(4);
     _eccmram = .; /* define a global symbols at ccmram end */
   } >ITCMRAM AT> FLASH_MAIN_APP
