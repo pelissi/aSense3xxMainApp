@@ -120,6 +120,9 @@ SECTIONS
     *(.text.HAL_TIM_IRQHandler)
     *(.text.HAL_TIM_PeriodElapsedCallback)
     *(.text.HAL_GPIO_EXTI_IRQHandler)
+    *(.text.HAL_GPIO_ReadPin)
+    *(.text.HAL_GPIO_WritePin)
+    *GpioIf.o(.text .text*)
     /* fifo_push her UART RX kesmesinde memcpy çağırıyor -> libc kopya rutinleri ITCM'e */
     *libc_nano.a:*memcpy*.o(.text .text*)
     *libc_nano.a:*memset*.o(.text .text*)
