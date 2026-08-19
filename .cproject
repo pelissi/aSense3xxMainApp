@@ -133,7 +133,7 @@
 									<listOptionValue builtIn="false" value="MAX_MON_PACKET_CONTENT_SIZE=484"/>
 									<listOptionValue builtIn="false" value="TX_EXECUTION_PROFILE_ENABLE"/>
 									<listOptionValue builtIn="false" value="USE_PWR_LDO_SUPPLY"/>
-									<listOptionValue builtIn="false" value="ASENSE_320_MAIN_APP"/>
+									<listOptionValue builtIn="false" value="ASENSE_3XX_MAIN_APP"/>
 									<listOptionValue builtIn="false" value="KALMAN_STATE_NUMBER=25"/>
 									<listOptionValue builtIn="false" value="ARM_MATH_CM7"/>
 									<listOptionValue builtIn="false" value="FIRMWARE_REV_STR=&quot;${FW_VERSION_VAR}&quot;"/>
@@ -479,7 +479,7 @@
 		<cconfiguration id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.release.61993707">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.release.61993707" moduleId="org.eclipse.cdt.core.settings" name="Release">
 				<macros>
-					<stringMacro name="FW_VERSION_VAR" type="VALUE_TEXT" value="03.06.15"/>
+					<stringMacro name="FW_VERSION_VAR" type="VALUE_TEXT" value="03.06.16"/>
 				</macros>
 				<externalSettings/>
 				<extensions>
@@ -604,7 +604,7 @@
 									<listOptionValue builtIn="false" value="MAX_MON_PACKET_CONTENT_SIZE=484"/>
 									<listOptionValue builtIn="false" value="TX_EXECUTION_PROFILE_ENABLE"/>
 									<listOptionValue builtIn="false" value="USE_PWR_LDO_SUPPLY"/>
-									<listOptionValue builtIn="false" value="ASENSE_320_MAIN_APP"/>
+									<listOptionValue builtIn="false" value="ASENSE_3XX_MAIN_APP"/>
 									<listOptionValue builtIn="false" value="KALMAN_STATE_NUMBER=25"/>
 									<listOptionValue builtIn="false" value="ARM_MATH_CM7"/>
 									<listOptionValue builtIn="false" value="FIRMWARE_REV_STR=&quot;${FW_VERSION_VAR}&quot;"/>
