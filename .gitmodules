@@ -1,6 +1,7 @@
 [submodule "Application"]
 	path = Application
 	url = https://github.com/pelissi/aSenseApplication
+	branch = master
 [submodule "Abstraction"]
 	path = Abstraction
 	url = https://github.com/pelissi/Abstraction
