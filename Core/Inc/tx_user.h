@@ -95,11 +95,13 @@ extern   OS_APP_HOOK_VOIDPTR_INT       OS_TaskCtxSwHookPtr;
 #define  TX_THREAD_DELETE_PORT_COMPLETION TX_USER_THREAD_DELETE_PORT_COMPLETION
 
 
+#if !defined(TX_EXECUTION_PROFILE_ENABLE)
 #define TX_THREAD_STATE_CHANGE(a,b)				\
 		if(0 != OS_TaskCtxSwHookPtr)			\
 		{										\
 			OS_TaskCtxSwHookPtr(a,b);			\
 		}
+#endif
 
 #endif
 /* USER CODE END 1 */
